@@ -39,7 +39,7 @@ export async function GET(req: NextRequest) {
     const db = client.db();
 
     // Recherche de l'utilisateur
-    const userId = (decoded as any).id;
+    const userId = (decoded as { id: string }).id;
     const user = await db.collection('utilisateurs').findOne(
       { _id: new ObjectId(userId) }, 
       { projection: { motDePasse: 0 } } // Exclure le mot de passe

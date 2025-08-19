@@ -11,7 +11,7 @@ export async function POST(req: Request) {
       folder: "socialfeed"
     });
     return NextResponse.json({ url: uploadRes.secure_url });
-  } catch (error) {
-    return NextResponse.json({ error: "Erreur upload Cloudinary." }, { status: 500 });
+  } catch (err) {
+    return NextResponse.json({ error: "Erreur upload Cloudinary.", err }, { status: 500 });
   }
 }

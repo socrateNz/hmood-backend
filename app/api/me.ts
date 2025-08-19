@@ -17,6 +17,6 @@ export async function GET(req: NextRequest) {
     const user = await User.findById(decoded.id).select("-password");
     return NextResponse.json({ user });
   } catch (err) {
-    return NextResponse.json({ message: "Token invalide" }, { status: 401 });
+    return NextResponse.json({ message: "Token invalide", error: err }, { status: 401 });
   }
 }

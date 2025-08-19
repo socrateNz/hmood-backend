@@ -25,6 +25,6 @@ export async function POST(req: Request) {
   });
 
   // On ne retourne pas le mot de passe
-  const { password: _, ...userSafe } = user.toObject();
+  const { ...userSafe } = user.toObject();
   return NextResponse.json(userSafe, { status: 201 });
 }
